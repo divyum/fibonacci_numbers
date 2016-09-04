@@ -1,0 +1,45 @@
+{% load static %}
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="{% static 'javascript/index.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets/main.css' %}" />
+<h1>Fibonacci Numbers</h1>
+
+<div class="form-inline">
+	<form method="post" id="post-form">
+		{% csrf_token %}
+		<div class="form-group">
+		 	<label for="nth_number"></label>
+		  <input class="form-control" pattern="(^[1-9])[0-9]*" autofocus
+          title='Invalid Number' required id="number" type="text"
+          name="number" placeholder="Enter the number">
+	  </div>
+	  <button type="submit" class="btn btn-default submit_button">Submit</button>
+	</form>
+	<ul id="recent"></ul>
+</div>
+
+<h4>Top Searches:</h4>
+{% if fibonacci_stats %}
+    <table border="1" cellpadding="3">
+    <tr>
+    	<td><strong>N</strong></td>
+    	<td><strong>Number</strong></td>
+    	<td><strong>Frequency</strong></td>
+    </tr>
+    {% for row in fibonacci_stats %}
+       <tr>
+        <td>{{ row.position }}</td>
+        <td>{{ row.value }}</td>
+        <td>{{ row.frequency }}</td>
+       </tr>
+    {% endfor %}
+{% else %}
+    <p>No stats are available.</p>
+{% endif %}
+		</table>
+
+<p><strong>Note:</strong> all numbers are modulo 1000000007</p>
+
