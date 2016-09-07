@@ -7,3 +7,6 @@ class Fibonacci(models.Model):
   position = models.IntegerField()
   value = models.IntegerField()
   frequency = models.IntegerField()
+
+  def __str__(self):
+		return str(self.position)
