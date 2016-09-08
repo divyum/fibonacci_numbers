@@ -1,0 +1,38 @@
+h1, .form-inline {
+  margin-bottom: 50px;
+  margin-left: 50px;
+}
+
+h4 {
+  margin-left: 50px;
+}
+
+p {
+  margin: 50px;
+}
+
+.submit_button {
+  margin-left: 10px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 10%;
+  margin-bottom: 50px;
+  margin-left: 50px
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 5px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+ul, li, p {
+  font-size: 15px;
+}
